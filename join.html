@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Express Interest | Campus Connect</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        <div class="logo-box">CC</div>
+
+        <div>
+            <b>Campus Connect</b>
+            <small>KLE Technological University</small>
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a class="active" href="clubs.html">
+            Clubs
+        </a>
+
+        <a href="events.html">
+            Events
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<section class="join-page">
+
+
+    <div class="join-heading">
+
+        <a href="clubs.html" class="back-link">
+            ← Back to Clubs
+        </a>
+
+        <p class="eyebrow">
+            EXPRESS YOUR INTEREST
+        </p>
+
+        <h1>
+            Join <span id="joinClubName">the club</span>.
+        </h1>
+
+        <p>
+            Tell us a little about yourself and
+            what you'd like to contribute.
+        </p>
+
+    </div>
+
+
+
+    <div class="form-card">
+
+
+        <form id="joinForm">
+
+
+            <h2>
+                Your Details
+            </h2>
+
+
+            <div class="form-grid">
+
+
+                <label>
+
+                    Full Name
+
+                    <input
+                        type="text"
+                        required
+                        placeholder="Enter your full name">
+
+                </label>
+
+
+                <label>
+
+                    Year
+
+                    <select required>
+
+                        <option value="">
+                            Select year
+                        </option>
+
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+
+                    Branch
+
+                    <input
+                        type="text"
+                        required
+                        placeholder="e.g. CSE">
+
+                </label>
+
+
+                <label>
+
+                    Email
+
+                    <input
+                        type="email"
+                        required
+                        placeholder="Enter your email">
+
+                </label>
+
+
+                <label>
+
+                    Contact Number
+
+                    <input
+                        type="tel"
+                        required
+                        placeholder="Enter your contact number">
+
+                </label>
+
+
+            </div>
+
+
+
+            <div class="form-section">
+
+                <h2>
+                    What would you like to explore?
+                </h2>
+
+                <p id="areaDescription">
+                    Select the areas that interest you.
+                </p>
+
+
+                <div
+                    id="clubOptions"
+                    class="club-options">
+                </div>
+
+            </div>
+
+
+
+            <div class="form-section">
+
+
+                <label class="full-label">
+
+                    Why do you want to join
+                    <span id="reasonClubName">
+                        this club
+                    </span>?
+
+                    <textarea
+                        rows="6"
+                        required
+                        placeholder="Tell us what interests you about this club..."></textarea>
+
+                </label>
+
+
+            </div>
+
+
+
+            <div class="form-section">
+
+
+                <div class="beautiful-note">
+
+                    <span>✦</span>
+
+                    <p id="clubNote">
+                        Bring your curiosity, creativity
+                        and willingness to learn.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="btn primary submit-btn">
+
+                Submit My Interest →
+
+            </button>
+
+
+        </form>
+
+
+
+        <div
+            id="successMessage"
+            class="success hidden">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                You're connected!
+            </h2>
+
+            <p>
+                Thank you for expressing your interest
+                in <span id="successClubName"></span>.
+            </p>
+
+            <p>
+                Your response has been recorded for
+                this website prototype.
+            </p>
+
+            <a
+                href="clubs.html"
+                class="btn primary">
+
+                Explore More Clubs →
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <b>
+        Campus Connect
+    </b>
+
+    <span>
+        KLE Technological University
+    </span>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

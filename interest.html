@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join Club | Campus Connect</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body {
+            background: #f6f8fc;
+        }
+
+        .form-page {
+            max-width: 900px;
+            margin: auto;
+            padding: 60px 25px 90px;
+        }
+
+        .form-card {
+            background: white;
+            border: 1px solid #dce4f2;
+            border-radius: 32px;
+            padding: 45px;
+            box-shadow: 0 15px 40px rgba(30, 60, 100, 0.08);
+        }
+
+        .form-top {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-icon {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .form-top .eyebrow {
+            color: #71809a;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .form-top h1 {
+            color: #183b68;
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .form-top p {
+            color: #71809a;
+            font-size: 17px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            color: #183b68;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px 17px;
+            border: 1px solid #d4deed;
+            border-radius: 14px;
+            font-size: 16px;
+            font-family: inherit;
+            outline: none;
+            background: #fbfcff;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #183b68;
+            box-shadow: 0 0 0 3px rgba(24, 59, 104, 0.08);
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .submit-area {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .submit-button {
+            border: none;
+            background: #183b68;
+            color: white;
+            padding: 16px 35px;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(24, 59, 104, 0.2);
+        }
+
+        .success {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #eef7f1;
+            border: 1px solid #cce5d4;
+            color: #28633b;
+            border-radius: 16px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #183b68;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media(max-width: 700px) {
+
+            .form-card {
+                padding: 30px 22px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .field.full {
+                grid-column: auto;
+            }
+
+            .form-top h1 {
+                font-size: 34px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        <div class="logo-box">
+            CC
+        </div>
+
+        <div>
+
+            <b>Campus Connect</b>
+
+            <small>
+                KLE Technological University
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a class="active" href="clubs.html">
+            Clubs
+        </a>
+
+        <a href="events.html">
+            Events
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="form-page">
+
+    <a href="clubs.html" class="back">
+        ← Back to Clubs
+    </a>
+
+
+    <div class="form-card">
+
+
+        <div class="form-top">
+
+            <div class="form-icon">
+                ✨
+            </div>
+
+            <p class="eyebrow">
+                I'M INTERESTED
+            </p>
+
+            <h1 id="formClub">
+                Join a Club
+            </h1>
+
+            <p>
+                Tell us a little about yourself and what
+                interests you about this club.
+            </p>
+
+        </div>
+
+
+
+        <form id="clubForm">
+
+
+            <div class="form-grid">
+
+
+                <!-- NAME -->
+
+                <div class="field">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- YEAR -->
+
+                <div class="field">
+
+                    <label>
+                        Year *
+                    </label>
+
+                    <select name="year" required>
+
+                        <option value="">
+                            Select your year
+                        </option>
+
+                        <option>
+                            1st Year
+                        </option>
+
+                        <option>
+                            2nd Year
+                        </option>
+
+                        <option>
+                            3rd Year
+                        </option>
+
+                        <option>
+                            4th Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- BRANCH -->
+
+                <div class="field">
+
+                    <label>
+                        Branch *
+                    </label>
+
+                    <input
+                        type="text"
+                        name="branch"
+                        placeholder="Example: CSE"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="field">
+
+                    <label>
+                        Email *
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="yourname@example.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CONTACT -->
+
+                <div class="field">
+
+                    <label>
+                        Contact Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        name="contact"
+                        placeholder="Enter your contact number"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- SPECIFIC INTEREST -->
+
+                <div class="field">
+
+                    <label>
+                        Your Interest
+                    </label>
+
+                    <input
+                        type="text"
+                        name="interest"
+                        placeholder="What would you like to explore?"
+                    >
+
+                </div>
+
+
+
+                <!-- WHY -->
+
+                <div class="field full">
+
+                    <label>
+                        Why do you want to join this club? *
+                    </label>
+
+                    <textarea
+                        name="reason"
+                        placeholder="Tell us what interests you about this club..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- EXPERIENCE -->
+
+                <div class="field full">
+
+                    <label>
+                        Tell us something you'd like to contribute
+                    </label>
+
+                    <textarea
+                        name="contribution"
+                        placeholder="Your ideas, skills, experience or anything you'd love to bring..."
+                    ></textarea>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="submit-area">
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    Submit Interest ✨
+                </button>
+
+            </div>
+
+
+            <div
+                class="success"
+                id="successMessage"
+            >
+                🎉 Your interest has been recorded!
+                We hope to see you in the club soon.
+            </div>
+
+
+        </form>
+
+    </div>
+
+</main>
+
+
+
+<footer>
+
+    <b>
+        Campus Connect
+    </b>
+
+    <span>
+        Discover. Connect. Participate. · KLE Technological University
+    </span>
+
+</footer>
+
+
+
+<script>
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const club =
+    params.get("club") || "Student Club";
+
+
+
+/* SHOW THE CORRECT CLUB NAME */
+
+document.getElementById("formClub").textContent =
+    "Join " + club;
+
+
+
+/* FORM SUBMISSION */
+
+document
+    .getElementById("clubForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        document.getElementById("successMessage").style.display =
+            "block";
+
+        this.reset();
+
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+        });
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

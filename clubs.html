@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Clubs | Campus Connect</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:#f7f9ff;
+    color:#183b67;
+    min-height:100vh;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    height:90px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    border-bottom:1px solid #dce5f3;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-box{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:#1f4b80;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size:18px;
+}
+
+.logo b{
+    display:block;
+    font-size:18px;
+}
+
+.logo small{
+    color:#74839a;
+    font-size:12px;
+}
+
+nav{
+    display:flex;
+    gap:10px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#65738a;
+    font-size:17px;
+    font-weight:700;
+    padding:14px 24px;
+    border-radius:18px;
+}
+
+nav a:hover,
+nav a.active{
+    background:#edf2fb;
+    color:#183b67;
+}
+
+/* ================= HERO ================= */
+
+.page-title{
+    text-align:center;
+    padding:70px 20px 45px;
+}
+
+.eyebrow{
+    font-size:13px;
+    letter-spacing:3px;
+    font-weight:800;
+    color:#7387a4;
+    margin-bottom:12px;
+}
+
+.page-title h1{
+    font-family:"Playfair Display",serif;
+    font-size:58px;
+    margin-bottom:15px;
+}
+
+.page-title p{
+    max-width:700px;
+    margin:auto;
+    color:#718098;
+    font-size:18px;
+    line-height:1.7;
+}
+
+/* ================= CLUB GRID ================= */
+
+.clubs-container{
+    width:90%;
+    max-width:1350px;
+    margin:auto;
+    padding-bottom:80px;
+}
+
+.club-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+}
+
+.club-card{
+    background:white;
+    border:1px solid #d9e2f1;
+    border-radius:32px;
+    padding:34px;
+    min-height:470px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 12px 35px rgba(32,61,100,.06);
+    transition:.3s ease;
+}
+
+.club-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 22px 45px rgba(32,61,100,.12);
+}
+
+.club-card::after{
+    content:"✦";
+    position:absolute;
+    right:25px;
+    top:20px;
+    font-size:35px;
+    color:#dce8fa;
+}
+
+.club-top{
+    display:flex;
+    gap:22px;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.club-icon{
+    width:120px;
+    height:120px;
+    border-radius:28px;
+    background:#eef3fc;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:58px;
+    flex-shrink:0;
+}
+
+.club-card h2{
+    font-family:"Playfair Display",serif;
+    font-size:36px;
+    line-height:1.15;
+}
+
+.tagline{
+    color:#77869c;
+    margin-top:9px;
+    font-size:17px;
+    font-weight:600;
+}
+
+.club-description{
+    color:#65748b;
+    line-height:1.8;
+    font-size:16px;
+    margin:20px 0 25px;
+}
+
+.content-preview{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:28px;
+}
+
+.content-tag{
+    background:#f0f4fb;
+    border-radius:30px;
+    padding:11px 16px;
+    color:#28517f;
+    font-weight:700;
+    font-size:14px;
+}
+
+.explore-btn{
+    border:none;
+    background:#214d82;
+    color:white;
+    padding:15px 25px;
+    border-radius:17px;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.explore-btn:hover{
+    background:#163b68;
+    transform:translateX(4px);
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(15,31,52,.55);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    z-index:500;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:900px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:white;
+    border-radius:32px;
+    padding:42px;
+    position:relative;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+    animation:pop .3s ease;
+}
+
+@keyframes pop{
+    from{
+        opacity:0;
+        transform:scale(.92) translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+.close{
+    position:absolute;
+    right:22px;
+    top:20px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#eef3fb;
+    color:#214d82;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.modal-header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.modal-icon{
+    width:85px;
+    height:85px;
+    border-radius:23px;
+    background:#eef3fb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:43px;
+}
+
+.modal h2{
+    font-family:"Playfair Display",serif;
+    font-size:42px;
+}
+
+.quote{
+    background:#f0f4fb;
+    border-left:5px solid #214d82;
+    border-radius:15px;
+    padding:22px 25px;
+    margin:25px 0;
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+    font-style:italic;
+    color:#214d82;
+}
+
+.modal-description{
+    color:#66768e;
+    line-height:1.8;
+    font-size:17px;
+    margin-bottom:28px;
+}
+
+.modal h3{
+    font-size:24px;
+    margin-bottom:17px;
+}
+
+.content-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.content-button{
+    border:1px solid #dce5f2;
+    background:#fafcff;
+    padding:20px;
+    border-radius:20px;
+    cursor:pointer;
+    text-align:left;
+    font-size:16px;
+    font-weight:800;
+    color:#214d82;
+    transition:.25s;
+}
+
+.content-button:hover{
+    background:#eef4ff;
+    transform:translateY(-3px);
+}
+
+.content-button span{
+    font-size:25px;
+    margin-right:8px;
+}
+
+.interest-main{
+    display:inline-block;
+    margin-top:15px;
+    border:none;
+    background:#214d82;
+    color:white;
+    padding:16px 28px;
+    border-radius:17px;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* ================= FORM ================= */
+
+.form-box{
+    max-width:650px;
+}
+
+.form-subtitle{
+    color:#718098;
+    margin-bottom:25px;
+    line-height:1.6;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:17px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    font-size:14px;
+    font-weight:800;
+    color:#36577d;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #d5dfed;
+    border-radius:14px;
+    outline:none;
+    font-family:inherit;
+    font-size:15px;
+    background:#fbfcff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#5278aa;
+    box-shadow:0 0 0 3px #e8eff9;
+}
+
+.form-group textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+.submit-btn{
+    width:100%;
+    margin-top:22px;
+    padding:17px;
+    border:none;
+    border-radius:16px;
+    background:#214d82;
+    color:white;
+    font-size:17px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    background:#163b68;
+}
+
+/* ================= SUCCESS ================= */
+
+.success-message{
+    display:none;
+    text-align:center;
+    padding:30px;
+}
+
+.success-message.show{
+    display:block;
+}
+
+.success-icon{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.success-message h2{
+    font-family:"Playfair Display",serif;
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.success-message p{
+    color:#718098;
+    line-height:1.7;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:850px){
+
+    header{
+        padding:0 4%;
+    }
+
+    nav a{
+        padding:10px;
+        font-size:14px;
+    }
+
+    .club-grid{
+        grid-template-columns:1fr;
+    }
+
+    .page-title h1{
+        font-size:43px;
+    }
+}
+
+@media(max-width:600px){
+
+    header{
+        height:auto;
+        padding:18px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        width:100%;
+        justify-content:center;
+    }
+
+    nav a{
+        font-size:13px;
+        padding:9px 11px;
+    }
+
+    .club-card{
+        padding:24px;
+    }
+
+    .club-top{
+        align-items:flex-start;
+    }
+
+    .club-icon{
+        width:80px;
+        height:80px;
+        font-size:38px;
+    }
+
+    .club-card h2{
+        font-size:28px;
+    }
+
+    .content-grid,
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .modal-box{
+        padding:28px 20px;
+    }
+
+    .modal h2{
+        font-size:32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        <div class="logo-box">CC</div>
+
+        <div>
+            <b>Campus Connect</b>
+            <small>KLE Technological University</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a class="active" href="clubs.html">Clubs</a>
+        <a href="events.html">Events</a>
+        
+    </nav>
+
+</header>
+
+
+<!-- ================= PAGE TITLE ================= -->
+
+<section class="page-title">
+
+    <p class="eyebrow">STUDENT COMMUNITY</p>
+
+    <h1>Find your club. Find your people. ✨</h1>
+
+    <p>
+        Explore communities across KLE Technological University,
+        discover what excites you and find a place to create,
+        perform, learn and connect.
+    </p>
+
+</section>
+
+
+<!-- ================= CLUBS ================= -->
+
+<div class="clubs-container">
+
+<div class="club-grid" id="clubGrid"></div>
+
+</div>
+
+
+<!-- ================= CLUB MODAL ================= -->
+
+<div class="modal" id="clubModal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal('clubModal')">×</button>
+
+        <div class="modal-header">
+
+            <div class="modal-icon" id="clubModalIcon"></div>
+
+            <div>
+                <p class="eyebrow">WELCOME TO THE CLUB</p>
+                <h2 id="clubModalName"></h2>
+            </div>
+
+        </div>
+
+        <div class="quote" id="clubQuote"></div>
+
+        <p class="modal-description" id="clubDescription"></p>
+
+        <h3>✨ What can you explore?</h3>
+
+        <div class="content-grid" id="contentGrid"></div>
+
+        <button
+            class="interest-main"
+            onclick="openForm(currentClub, 'General Club Interest')">
+            💌 I'm Interested in This Club
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CONTENT MODAL ================= -->
+
+<div class="modal" id="contentModal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal('contentModal')">×</button>
+
+        <div class="modal-header">
+
+            <div class="modal-icon" id="contentIcon"></div>
+
+            <div>
+                <p class="eyebrow">EXPLORE THIS INTEREST</p>
+                <h2 id="contentName"></h2>
+            </div>
+
+        </div>
+
+        <div class="quote" id="contentQuote"></div>
+
+        <p class="modal-description" id="contentDescription"></p>
+
+        <button
+            class="interest-main"
+            onclick="openForm(currentClub, currentContent)">
+            📝 I'm Interested — Fill the Form
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FORM MODAL ================= -->
+
+<div class="modal" id="formModal">
+
+    <div class="modal-box form-box">
+
+        <button class="close" onclick="closeModal('formModal')">×</button>
+
+        <div id="formContent">
+
+            <div class="modal-header">
+
+                <div class="modal-icon">💌</div>
+
+                <div>
+                    <p class="eyebrow">EXPRESS YOUR INTEREST</p>
+                    <h2 id="formTitle">Join Us</h2>
+                </div>
+
+            </div>
+
+            <p class="form-subtitle">
+                Tell us a little about yourself. Your interest will help
+                the club understand where you would love to contribute.
+            </p>
+
+            <form id="interestForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" id="studentName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Year *</label>
+
+                        <select id="year" required>
+                            <option value="">Select Year</option>
+                            <option>1st Year</option>
+                            <option>2nd Year</option>
+                            <option>3rd Year</option>
+                            <option>4th Year</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Branch *</label>
+                        <input
+                            type="text"
+                            id="branch"
+                            placeholder="Example: CSE"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="you@example.com"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contact Number *</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="10-digit number"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Interest *</label>
+                        <input
+                            type="text"
+                            id="interestField"
+                            readonly>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Why do you want to join this particular club?</label>
+
+                        <textarea
+                            id="reason"
+                            placeholder="Tell us what excites you about this club..."></textarea>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Anything else you'd like us to know?</label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Skills, experience, ideas or anything you'd love to share..."></textarea>
+                    </div>
+
+                </div>
+
+                <button class="submit-btn" type="submit">
+                    ✨ Submit My Interest
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div class="success-message" id="successMessage">
+
+            <div class="success-icon">🎉</div>
+
+            <h2>You're on the list!</h2>
+
+            <p>
+                Thank you for expressing your interest.
+                Keep an eye out for club announcements and opportunities.
+                We hope to see you there! 💙
+            </p>
+
+            <button
+                class="interest-main"
+                onclick="closeModal('formModal')">
+                Back to Clubs →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   CLUB DATA
+   Every club has its OWN content.
+   ========================================================= */
+
+const clubs = [
+
+{
+    name:"Make in BVB",
+    icon:"🛠️",
+    tagline:"Build. Create. Innovate.",
+    description:"A creative and technical community where students can turn ideas into projects through technology, design, software and communication.",
+    quote:"Ideas become exciting when you stop imagining them and start building them.",
+    contents:[
+        ["💻","Software","Coding, software development, web projects and technology-based ideas.","Code is not just written — it is built into something people can use."],
+        ["🎤","Public Speaking","Speaking, presenting, anchoring and confidently sharing ideas.","Your idea deserves a voice. Make yours heard."],
+        ["🎨","Designing","Visual design, creative layouts, graphics and digital creativity.","Good design makes an idea impossible to ignore."],
+        ["📱","Content Creation","Creative content, social media ideas, storytelling and digital communication.","Create something people remember."],
+        ["📢","Media & Publishing","Publishing club activities, updates, creative work and campus content.","Every great project has a story worth sharing."]
+    ]
+},
+
+{
+    name:"Music Club",
+    icon:"🎵",
+    tagline:"Feel it. Play it. Share it.",
+    description:"A space for singers, instrumentalists and music lovers to perform, collaborate and create unforgettable campus moments.",
+    quote:"Music is where different voices become one.",
+    contents:[
+        ["🎤","Singing","Solo singing, group performances and vocal activities.","Some feelings are better sung than spoken."],
+        ["🎸","Guitar","Guitar performance, practice and musical collaboration.","Six strings. Endless possibilities."],
+        ["🎹","Keyboard","Keyboard performance, accompaniment and musical exploration.","Every melody starts with one key."],
+        ["🥁","Percussion","Rhythm, drums and energetic musical performances.","Find your rhythm and let it lead the way."],
+        ["🎻","Other Instruments","Students who play different instruments can collaborate and perform.","Different instruments, one beautiful sound."],
+        ["📸","Music Media","Photography, video and publishing of musical performances.","Capture the sound. Keep the memory."]
+    ]
+},
+
+{
+    name:"Drama Club",
+    icon:"🎭",
+    tagline:"Perform. Express. Transform.",
+    description:"A stage for students who enjoy acting, public speaking, storytelling and bringing characters and ideas to life.",
+    quote:"The stage is where imagination gets a voice.",
+    contents:[
+        ["🎭","Acting","Stage acting, character building and theatre performances.","Step into a character. Step into a new world."],
+        ["🎤","Public Speaking","Dialogue delivery, anchoring and confident stage presence.","Confidence begins when you dare to speak."],
+        ["🎬","Stage & Performance","Scenes, skits, theatre productions and performances.","A blank stage is simply a story waiting to happen."],
+        ["📸","Drama Media","Photography, video coverage and publishing of performances.","Every performance deserves a memory."]
+    ]
+},
+
+{
+    name:"Dance Club",
+    icon:"💃",
+    tagline:"Move. Express. Perform.",
+    description:"A lively community for students who enjoy different dance styles, choreography, performances and movement.",
+    quote:"When words fall short, let movement speak.",
+    contents:[
+        ["💃","Dance Performance","Stage performances and campus showcases.","Dance like your story deserves to be seen."],
+        ["🕺","Choreography","Creating routines, formations and group performances.","Create the moves people remember."],
+        ["🔥","Western Dance","Contemporary, hip-hop and other modern styles.","Find your beat. Own your movement."],
+        ["🌸","Classical & Folk","Traditional, classical and folk-inspired performances.","Tradition moves forward through every new generation."],
+        ["📸","Dance Media","Photography, videos and publishing dance activities.","Freeze the movement. Keep the moment."]
+    ]
+},
+
+{
+    name:"Heritage Club",
+    icon:"🏛️",
+    tagline:"Know. Preserve. Celebrate.",
+    description:"A community that celebrates culture, heritage, traditions, history and the stories that connect generations.",
+    quote:"Heritage is not only what we inherit; it is what we choose to carry forward.",
+    contents:[
+        ["🏛️","Heritage & History","Exploring history, heritage and stories from the past.","The past has stories worth remembering."],
+        ["🎉","Culture & Festivals","Celebrating cultural traditions and campus festivities.","Culture becomes beautiful when it is shared."],
+        ["🎨","Traditional Arts","Traditional art, crafts and creative cultural expression.","Old traditions can inspire new creativity."],
+        ["📖","Storytelling","Stories, legends and experiences connected to culture.","Every tradition begins with a story."]
+    ]
+},
+
+{
+    name:"IUCEE Club",
+    icon:"🌍",
+    tagline:"Learn. Connect. Engineer.",
+    description:"A student community focused on engineering learning, collaboration, innovation and professional development.",
+    quote:"Engineering is not only about solving problems — it is about creating possibilities.",
+    contents:[
+        ["🧠","Technical Learning","Technical knowledge, learning sessions and engineering discussions.","Keep learning. Keep questioning."],
+        ["💡","Innovation","Ideas, innovation and problem-solving activities.","Great solutions begin with curious minds."],
+        ["🤝","Collaboration","Teamwork, networking and student collaboration.","The best ideas grow when people build together."],
+        ["🎤","Workshops & Talks","Learning opportunities, sessions and technical interactions.","Every conversation can teach you something new."]
+    ]
+},
+
+{
+    name:"Code Club",
+    icon:"💻",
+    tagline:"Think. Code. Build.",
+    description:"A technical community for students interested in programming, problem-solving, projects and software development.",
+    quote:"Every programmer starts with one line of code.",
+    contents:[
+        ["💻","Programming","Learning and practising programming languages.","Start small. Build something real."],
+        ["🧩","Problem Solving","Logic, algorithms and programming challenges.","A difficult problem is just an interesting challenge."],
+        ["🌐","Web Development","Websites, interfaces and interactive projects.","Turn your ideas into something people can click."],
+        ["🤖","Projects","Building software and technology projects.","Don't just learn technology. Build with it."],
+        ["🏆","Coding Challenges","Competitive programming and coding activities.","Challenge yourself before the problem challenges you."]
+    ]
+},
+
+{
+    name:"Space Club",
+    icon:"🚀",
+    tagline:"Look beyond. Explore further.",
+    description:"A community for students fascinated by astronomy, space, science, exploration and the technology behind it.",
+    quote:"The universe is vast — curiosity makes it feel closer.",
+    contents:[
+        ["🌌","Astronomy","Stars, planets, galaxies and astronomical observations.","Look up. There is always more to discover."],
+        ["🔭","Stargazing","Exploring the night sky and observing celestial objects.","Sometimes the best view is above you."],
+        ["🚀","Space Technology","Technology, missions and engineering connected to space.","Dream beyond Earth. Build towards it."],
+        ["🛰️","Space Research","Exploring scientific questions about our universe.","Curiosity is the beginning of discovery."]
+    ]
+},
+
+{
+    name:"Media Club",
+    icon:"📸",
+    tagline:"Capture. Create. Share.",
+    description:"The creative communication side of campus life — photography, video, editing, publishing, VJ activities and event coverage.",
+    quote:"Campus life happens once. Capture it, create with it, and share the story.",
+    contents:[
+        ["📸","Photography","Capture campus events, people, performances and memorable moments.","A photograph turns one moment into a memory."],
+        ["🎥","Videography","Shoot campus activities, interviews, performances and creative videos.","Some stories deserve to move."],
+        ["✂️","Video Editing","Edit footage into engaging and creative videos.","Raw moments become stories through editing."],
+        ["🎙️","VJ","Hosting, presenting and communicating campus activities.","A good host can turn an event into an experience."],
+        ["📰","Publishing","Publish campus stories, announcements and creative work.","Give campus stories a place to be seen."]
+    ]
+},
+
+{
+    name:"Words Worth Club",
+    icon:"✍️",
+    tagline:"Write it. Feel it. Share it.",
+    description:"A space for students who enjoy writing, storytelling, poetry, creative expression and communicating through words.",
+    quote:"Sometimes a few honest words can say what a thousand explanations cannot.",
+    contents:[
+        ["✍️","Writing","Creative writing, articles and personal expression.","Write what you feel. Someone may need to read it."],
+        ["📖","Storytelling","Stories, experiences and creative narratives.","Every person carries a story worth telling."],
+        ["📝","Poetry","Poetry, spoken word and expressive writing.","Turn feelings into words and words into something beautiful."],
+        ["🎨","Creative Expression","Creative communication through words and imagination.","There are no limits when imagination gets a voice."]
+    ]
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+let currentClub = "";
+let currentContent = "";
+
+
+/* =========================================================
+   CREATE CLUB CARDS
+   ========================================================= */
+
+const clubGrid = document.getElementById("clubGrid");
+
+clubs.forEach((club,index)=>{
+
+    const card = document.createElement("div");
+
+    card.className = "club-card";
+
+    card.innerHTML = `
+
+        <div class="club-top">
+
+            <div class="club-icon">
+                ${club.icon}
+            </div>
+
+            <div>
+                <h2>${club.name}</h2>
+                <p class="tagline">${club.tagline}</p>
+            </div>
+
+        </div>
+
+        <p class="club-description">
+            ${club.description}
+        </p>
+
+        <div class="content-preview">
+
+            ${club.contents.slice(0,5).map(item => `
+                <span class="content-tag">
+                    ${item[0]} ${item[1]}
+                </span>
+            `).join("")}
+
+        </div>
+
+        <button
+            class="explore-btn"
+            onclick="openClub(${index})">
+            Explore ${club.name} →
+        </button>
+
+    `;
+
+    clubGrid.appendChild(card);
+
+});
+
+
+/* =========================================================
+   OPEN CLUB
+   ========================================================= */
+
+function openClub(index){
+
+    const club = clubs[index];
+
+    currentClub = club.name;
+
+    document.getElementById("clubModalIcon").textContent = club.icon;
+
+    document.getElementById("clubModalName").textContent = club.name;
+
+    document.getElementById("clubQuote").textContent =
+        "“" + club.quote + "”";
+
+    document.getElementById("clubDescription").textContent =
+        club.description;
+
+    const grid = document.getElementById("contentGrid");
+
+    grid.innerHTML = "";
+
+    club.contents.forEach(item=>{
+
+        const button = document.createElement("button");
+
+        button.className = "content-button";
+
+        button.innerHTML = `
+            <span>${item[0]}</span>
+            ${item[1]}
+        `;
+
+        button.onclick = function(){
+
+            openContent(
+                club.name,
+                item
+            );
+
+        };
+
+        grid.appendChild(button);
+
+    });
+
+    document.getElementById("clubModal").classList.add("show");
+
+}
+
+
+/* =========================================================
+   OPEN PARTICULAR CONTENT
+   ========================================================= */
+
+function openContent(clubName,item){
+
+    currentClub = clubName;
+
+    currentContent = item[1];
+
+    document.getElementById("contentIcon").textContent =
+        item[0];
+
+    document.getElementById("contentName").textContent =
+        item[1];
+
+    document.getElementById("contentQuote").textContent =
+        "“" + item[3] + "”";
+
+    document.getElementById("contentDescription").textContent =
+        item[2];
+
+    document.getElementById("contentModal").classList.add("show");
+
+}
+
+
+/* =========================================================
+   OPEN FORM
+   ========================================================= */
+
+function openForm(clubName,interest){
+
+    currentClub = clubName;
+
+    currentContent = interest;
+
+    document.getElementById("formTitle").textContent =
+        clubName;
+
+    document.getElementById("interestField").value =
+        interest;
+
+    document.getElementById("clubModal").classList.remove("show");
+
+    document.getElementById("contentModal").classList.remove("show");
+
+    document.getElementById("formModal").classList.add("show");
+
+}
+
+
+/* =========================================================
+   CLOSE MODALS
+   ========================================================= */
+
+function closeModal(id){
+
+    document.getElementById(id).classList.remove("show");
+
+}
+
+
+/* =========================================================
+   CLICK OUTSIDE MODAL TO CLOSE
+   ========================================================= */
+
+document.querySelectorAll(".modal").forEach(modal=>{
+
+    modal.addEventListener("click",function(e){
+
+        if(e.target === modal){
+
+            modal.classList.remove("show");
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   FORM SUBMISSION
+   ========================================================= */
+
+document.getElementById("interestForm").addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const name =
+        document.getElementById("studentName").value;
+
+    if(!name.trim()){
+
+        alert("Please enter your name.");
+
+        return;
+
+    }
+
+    document.getElementById("formContent").style.display="none";
+
+    document.getElementById("successMessage").classList.add("show");
+
+});
+
+
+/* =========================================================
+   ESC KEY CLOSE
+   ========================================================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+
+        document.querySelectorAll(".modal").forEach(modal=>{
+            modal.classList.remove("show");
+        });
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

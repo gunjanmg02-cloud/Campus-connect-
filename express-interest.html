@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Campus Connect
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        <div class="logo-box">
+            CC
+        </div>
+
+        <div>
+
+            <b>
+                Campus Connect
+            </b>
+
+            <small>
+                KLE Technological University
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="clubs.html">
+            Clubs
+        </a>
+
+        <a href="events.html">
+            Events
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================= DISCOVER MODE ================= -->
+
+<section
+    id="discoverMode"
+    class="interest-page">
+
+
+    <div class="interest-header">
+
+        <p class="eyebrow">
+            DISCOVER YOUR INTEREST
+        </p>
+
+        <h1>
+            What are you into?
+        </h1>
+
+        <p>
+            Search for something you enjoy and discover
+            the clubs where you can explore that interest.
+        </p>
+
+    </div>
+
+
+
+    <div class="interest-search">
+
+        <input
+            type="text"
+            id="interestSearch"
+            placeholder="Try Photography, Coding, Music...">
+
+        <button
+            onclick="searchInterest()">
+
+            Search
+
+        </button>
+
+    </div>
+
+
+
+    <div class="interest-options">
+
+
+        <button
+            class="interest-option"
+            onclick="showInterest('Photography')">
+
+            <div class="interest-icon">
+                📸
+            </div>
+
+            <h3>
+                Photography
+            </h3>
+
+            <p>
+                Capture moments and campus stories.
+            </p>
+
+        </button>
+
+
+        <button
+            class="interest-option"
+            onclick="showInterest('Public Speaking')">
+
+            <div class="interest-icon">
+                🎤
+            </div>
+
+            <h3>
+                Public Speaking
+            </h3>
+
+            <p>
+                Host, present and communicate.
+            </p>
+
+        </button>
+
+
+        <button
+            class="interest-option"
+            onclick="showInterest('Coding')">
+
+            <div class="interest-icon">
+                💻
+            </div>
+
+            <h3>
+                Coding
+            </h3>
+
+            <p>
+                Build projects and solve problems.
+            </p>
+
+        </button>
+
+
+        <button
+            class="interest-option"
+            onclick="showInterest('Music')">
+
+            <div class="interest-icon">
+                🎵
+            </div>
+
+            <h3>
+                Music
+            </h3>
+
+            <p>
+                Sing, play and create.
+            </p>
+
+        </button>
+
+
+        <button
+            class="interest-option"
+            onclick="showInterest('Acting')">
+
+            <div class="interest-icon">
+                🎭
+            </div>
+
+            <h3>
+                Acting
+            </h3>
+
+            <p>
+                Perform and express yourself.
+            </p>
+
+        </button>
+
+
+        <button
+            class="interest-option"
+            onclick="showInterest('Writing')">
+
+            <div class="interest-icon">
+                ✍️
+            </div>
+
+            <h3>
+                Writing
+            </h3>
+
+            <p>
+                Create stories and content.
+            </p>
+
+        </button>
+
+
+        <button
+            class="interest-option"
+            onclick="showInterest('Designing')">
+
+            <div class="interest-icon">
+                🎨
+            </div>
+
+            <h3>
+                Designing
+            </h3>
+
+            <p>
+                Create visual content and designs.
+            </p>
+
+        </button>
+
+
+        <button
+            class="interest-option"
+            onclick="showInterest('Dance')">
+
+            <div class="interest-icon">
+                💃
+            </div>
+
+            <h3>
+                Dance
+            </h3>
+
+            <p>
+                Move, perform and express.
+            </p>
+
+        </button>
+
+    </div>
+
+
+
+    <div
+        class="interest-results"
+        id="interestResults"
+        style="display:none;">
+
+        <h2 id="resultTitle">
+            Clubs for you
+        </h2>
+
+        <div id="resultCards"></div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= EXPRESS INTEREST MODE ================= -->
+
+<section
+    id="joinMode"
+    class="form-page"
+    style="display:none;">
+
+
+    <a href="index.html">
+        ← Back to Home
+    </a>
+
+
+    <div class="form-layout">
+
+
+        <div>
+
+            <p class="eyebrow">
+                EXPRESS INTEREST
+            </p>
+
+
+            <h1>
+                Want to be part of a club?
+            </h1>
+
+
+            <p>
+                Tell us a little about yourself and the
+                club or activities you're interested in.
+            </p>
+
+
+            <div class="quote">
+
+                ✦
+
+                <span>
+
+                    You don't need to be an expert.
+                    Bring your curiosity, ideas and
+                    willingness to learn.
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-card">
+
+
+            <form id="interestForm">
+
+
+                <div class="form-grid">
+
+
+                    <label>
+
+                        Full Name
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Year
+
+                        <select
+                            name="year"
+                            required>
+
+                            <option value="">
+                                Select year
+                            </option>
+
+                            <option>
+                                1st Year
+                            </option>
+
+                            <option>
+                                2nd Year
+                            </option>
+
+                            <option>
+                                3rd Year
+                            </option>
+
+                            <option>
+                                4th Year
+                            </option>
+
+                        </select>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Branch
+
+                        <input
+                            type="text"
+                            name="branch"
+                            placeholder="e.g. CSE"
+                            required>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Email
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Contact Number
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            placeholder="Enter contact number"
+                            required>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Club you're interested in
+
+                        <select
+                            name="club"
+                            required>
+
+                            <option value="">
+                                Select a club
+                            </option>
+
+                            <option>
+                                Make in BVB
+                            </option>
+
+                            <option>
+                                Music Club
+                            </option>
+
+                            <option>
+                                Drama Club
+                            </option>
+
+                            <option>
+                                Dance Club
+                            </option>
+
+                            <option>
+                                Heritage Club
+                            </option>
+
+                            <option>
+                                IUCEE Club
+                            </option>
+
+                            <option>
+                                Code Club
+                            </option>
+
+                            <option>
+                                Space Club
+                            </option>
+
+                            <option>
+                                Media Club
+                            </option>
+
+                            <option>
+                                Words Worth Club
+                            </option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+
+
+                <label class="full-label">
+
+                    Why do you want to join this particular club?
+
+                    <textarea
+                        name="reason"
+                        rows="5"
+                        placeholder="Tell us what interests you about this club..."
+                        required></textarea>
+
+                </label>
+
+
+
+                <fieldset>
+
+                    <legend>
+                        What are you interested in?
+                    </legend>
+
+
+                    <div class="checkboxes">
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Photography">
+
+                            Photography
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Public Speaking">
+
+                            Public Speaking
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Coding">
+
+                            Coding
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Music">
+
+                            Music
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Acting">
+
+                            Acting
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Dance">
+
+                            Dance
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Writing">
+
+                            Writing
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Designing">
+
+                            Designing
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Content Creation">
+
+                            Content Creation
+
+                        </label>
+
+
+                        <label class="check">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="Videography">
+
+                            Videography
+
+                        </label>
+
+
+                    </div>
+
+                </fieldset>
+
+
+
+                <button
+                    type="submit"
+                    class="btn primary full">
+
+                    Submit My Interest →
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- SUCCESS MESSAGE -->
+
+            <div
+                id="successBox"
+                class="success hidden">
+
+
+                <div>
+                    ✓
+                </div>
+
+
+                <h2>
+                    You're connected!
+                </h2>
+
+
+                <p>
+                    Thank you for expressing your interest.
+                    Your response has been recorded for this
+                    website prototype.
+                </p>
+
+
+                <a
+                    href="index.html"
+                    class="btn primary">
+
+                    Back to Home
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    <b>
+        Campus Connect
+    </b>
+
+    <span>
+        Discover. Connect. Participate.
+        · KLE Technological University
+    </span>
+
+</footer>
+
+
+
+<script>
+
+
+/* ============================= */
+/* DISCOVER DATA */
+/* ============================= */
+
+
+const clubInterests = {
+
+
+    "Photography": [
+
+        {
+            name: "Media Club",
+            description:
+                "Photography, videography, event coverage, publishing and visual storytelling."
+        },
+
+        {
+            name: "Music Club",
+            description:
+                "Music activities along with media and publishing opportunities."
+        },
+
+        {
+            name: "Drama Club",
+            description:
+                "Performances, events and media activities."
+        }
+
+    ],
+
+
+
+    "Public Speaking": [
+
+        {
+            name: "Make in BVB",
+            description:
+                "Public speaking, content creation and communication."
+        },
+
+        {
+            name: "Drama Club",
+            description:
+                "Acting, public speaking and stage performance."
+        },
+
+        {
+            name: "Media Club",
+            description:
+                "VJ activities, event hosting and campus publishing."
+        }
+
+    ],
+
+
+
+    "Coding": [
+
+        {
+            name: "Make in BVB",
+            description:
+                "Software, designing, content creation and technical activities."
+        },
+
+        {
+            name: "Code Club",
+            description:
+                "Coding, programming, problem solving and technical projects."
+        }
+
+    ],
+
+
+
+    "Music": [
+
+        {
+            name: "Music Club",
+            description:
+                "Singing, instruments, performances and music activities."
+        }
+
+    ],
+
+
+
+    "Acting": [
+
+        {
+            name: "Drama Club",
+            description:
+                "Acting, theatre, stage performance and public speaking."
+        }
+
+    ],
+
+
+
+    "Writing": [
+
+        {
+            name: "Words Worth Club",
+            description:
+                "Writing, literature, storytelling and communication."
+        },
+
+        {
+            name: "Media Club",
+            description:
+                "Publishing, content creation and campus media."
+        },
+
+        {
+            name: "Make in BVB",
+            description:
+                "Content creation and communication."
+        }
+
+    ],
+
+
+
+    "Designing": [
+
+        {
+            name: "Make in BVB",
+            description:
+                "Designing, software and creative projects."
+        },
+
+        {
+            name: "Media Club",
+            description:
+                "Visual content, graphics and publishing."
+        }
+
+    ],
+
+
+
+    "Dance": [
+
+        {
+            name: "Dance Club",
+            description:
+                "Dance practice, performances and choreography."
+        }
+
+    ]
+
+};
+
+
+
+/* ============================= */
+/* SHOW INTEREST */
+/* ============================= */
+
+
+function showInterest(interest) {
+
+
+    const results =
+        clubInterests[interest];
+
+
+    const resultBox =
+        document.getElementById("interestResults");
+
+
+    const resultTitle =
+        document.getElementById("resultTitle");
+
+
+    const resultCards =
+        document.getElementById("resultCards");
+
+
+    resultBox.style.display =
+        "block";
+
+
+    resultTitle.innerText =
+        "Clubs for " + interest;
+
+
+    resultCards.innerHTML =
+        "";
+
+
+    results.forEach(club => {
+
+
+        resultCards.innerHTML += `
+
+            <div class="result-card">
+
+                <h3>
+                    ${club.name}
+                </h3>
+
+                <p>
+                    ${club.description}
+                </p>
+
+                <a
+                    href="clubs.html"
+                    class="btn primary">
+
+                    View Clubs →
+
+                </a>
+
+            </div>
+
+        `;
+
+    });
+
+
+    resultBox.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+
+/* ============================= */
+/* SEARCH */
+/* ============================= */
+
+
+function searchInterest() {
+
+
+    const input =
+        document.getElementById(
+            "interestSearch"
+        );
+
+
+    const search =
+        input.value
+        .trim()
+        .toLowerCase();
+
+
+    const interests =
+        Object.keys(clubInterests);
+
+
+    const found =
+        interests.find(item =>
+            item.toLowerCase()
+            .includes(search)
+        );
+
+
+    if (found) {
+
+        showInterest(found);
+
+    }
+
+    else {
+
+        alert(
+            "Try Photography, Coding, Music, Dance, Acting, Writing, Designing or Public Speaking."
+        );
+
+    }
+
+}
+
+
+
+/* ============================= */
+/* FORM SUBMISSION */
+/* ============================= */
+
+
+const form =
+    document.getElementById(
+        "interestForm"
+    );
+
+
+if (form) {
+
+
+    form.addEventListener(
+        "submit",
+        function(event) {
+
+
+            event.preventDefault();
+
+
+            const selected =
+                document.querySelectorAll(
+                    'input[name="interest"]:checked'
+                );
+
+
+            if (
+                selected.length === 0
+            ) {
+
+                alert(
+                    "Please select at least one interest."
+                );
+
+                return;
+
+            }
+
+
+            form.classList.add(
+                "hidden"
+            );
+
+
+            document
+                .getElementById(
+                    "successBox"
+                )
+                .classList.remove(
+                    "hidden"
+                );
+
+        }
+    );
+
+}
+
+
+
+/* ============================= */
+/* CHOOSE PAGE MODE */
+/* ============================= */
+
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const mode =
+    params.get("mode");
+
+
+if (mode === "join") {
+
+
+    document.getElementById(
+        "discoverMode"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "joinMode"
+    ).style.display =
+        "block";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Club | Campus Connect</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body {
+            background: #f6f8fc;
+        }
+
+        .club-page {
+            max-width: 1250px;
+            margin: auto;
+            padding: 55px 25px 90px;
+        }
+
+        /* HERO */
+
+        .club-hero {
+            background: linear-gradient(135deg, #edf3ff, #ffffff);
+            border: 1px solid #d8e2f2;
+            border-radius: 35px;
+            padding: 55px;
+            margin-bottom: 35px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(30, 60, 100, 0.07);
+        }
+
+        .club-sticker {
+            font-size: 65px;
+            width: 105px;
+            height: 105px;
+            border-radius: 30px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(30, 60, 100, 0.10);
+            margin-bottom: 25px;
+        }
+
+        .club-hero .eyebrow {
+            color: #71809a;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .club-hero h1 {
+            color: #183b68;
+            font-size: 58px;
+            margin: 10px 0;
+        }
+
+        .club-description {
+            color: #68778f;
+            font-size: 20px;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .quote-box {
+            margin-top: 30px;
+            padding: 25px 30px;
+            background: white;
+            border-left: 5px solid #183b68;
+            border-radius: 18px;
+            font-size: 21px;
+            color: #29496f;
+            font-style: italic;
+        }
+
+        /* CONTENT */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .info-box {
+            background: white;
+            border: 1px solid #dce4f2;
+            border-radius: 28px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(30, 60, 100, 0.05);
+        }
+
+        .number {
+            color: #7890b0;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .info-box h2 {
+            color: #183b68;
+            font-size: 32px;
+            margin: 10px 0 22px;
+        }
+
+        .interest-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .interest-item {
+            padding: 17px 20px;
+            background: #f5f7fb;
+            border-radius: 16px;
+            color: #23466f;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .interest-item:hover {
+            transform: translateX(5px);
+            background: #edf2fa;
+        }
+
+        /* JOIN */
+
+        .join-box {
+            margin-top: 30px;
+            background: #183b68;
+            color: white;
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .join-box h2 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        .join-box p {
+            margin: 0;
+            color: #dce7f7;
+        }
+
+        .join-button {
+            display: inline-block;
+            background: white;
+            color: #183b68;
+            padding: 16px 25px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: 0.2s;
+        }
+
+        .join-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 25px;
+            text-decoration: none;
+            color: #183b68;
+            font-weight: bold;
+        }
+
+        @media(max-width: 800px) {
+
+            .club-hero {
+                padding: 35px 25px;
+            }
+
+            .club-hero h1 {
+                font-size: 42px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .join-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        <div class="logo-box">CC</div>
+
+        <div>
+            <b>Campus Connect</b>
+            <small>KLE Technological University</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a class="active" href="clubs.html">Clubs</a>
+        <a href="events.html">Events</a>
+        
+    </nav>
+
+</header>
+
+
+<main class="club-page">
+
+    <a href="clubs.html" class="back-button">
+        ← Back to Clubs
+    </a>
+
+
+    <!-- CLUB HERO -->
+
+    <section class="club-hero">
+
+        <div class="club-sticker" id="clubIcon">
+            ✨
+        </div>
+
+        <p class="eyebrow" id="clubCategory">
+            STUDENT COMMUNITY
+        </p>
+
+        <h1 id="clubName">
+            Club
+        </h1>
+
+        <p class="club-description" id="clubDescription">
+            Discover your interests and connect with students.
+        </p>
+
+        <div class="quote-box" id="clubQuote">
+            "Your interests can become your community."
+        </div>
+
+    </section>
+
+
+
+    <!-- CONTENT -->
+
+    <section class="content-grid">
+
+        <div class="info-box">
+
+            <div class="number">01</div>
+
+            <h2>
+                What you can explore
+            </h2>
+
+            <div class="interest-list" id="clubInterests">
+            </div>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <div class="number">02</div>
+
+            <h2>
+                Activities
+            </h2>
+
+            <div class="interest-list" id="clubActivities">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- JOIN -->
+
+    <section class="join-box">
+
+        <div>
+
+            <h2>
+                Think this is your kind of space? ✨
+            </h2>
+
+            <p>
+                Tell us a little about yourself and your interests.
+            </p>
+
+        </div>
+
+        <a
+            href="#"
+            id="joinButton"
+            class="join-button"
+        >
+            I'm Interested → 
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <b>
+        Campus Connect
+    </b>
+
+    <span>
+        Discover. Connect. Participate. · KLE Technological University
+    </span>
+
+</footer>
+
+
+
+<script>
+
+const clubs = {
+
+    make: {
+
+        name: "Make in BVB",
+
+        icon: "🛠️",
+
+        description:
+        "A creative and collaborative space where students build, communicate, design and create.",
+
+        quote:
+        "Don't just have an idea. Make it happen.",
+
+        interests: [
+            "Software & Technology",
+            "Public Speaking",
+            "Content Creation",
+            "Designing",
+            "Creative Problem Solving",
+            "Media & Publishing"
+        ],
+
+        activities: [
+            "Software projects",
+            "Creative content",
+            "Public speaking",
+            "Design & visual work",
+            "Media publishing",
+            "Collaborative student projects"
+        ]
+
+    },
+
+
+    music: {
+
+        name: "Music Club",
+
+        icon: "🎵",
+
+        description:
+        "A space for singers, instrumentalists and music lovers to come together and perform.",
+
+        quote:
+        "Where words fail, music speaks.",
+
+        interests: [
+            "Singing",
+            "Guitar",
+            "Keyboard",
+            "Drums",
+            "Other Instruments",
+            "Music Production"
+        ],
+
+        activities: [
+            "Jam sessions",
+            "Musical performances",
+            "Instrument practice",
+            "Singing sessions",
+            "Collaborative performances",
+            "Music content"
+        ]
+
+    },
+
+
+    drama: {
+
+        name: "Drama Club",
+
+        icon: "🎭",
+
+        description:
+        "A stage for students who love acting, storytelling, public speaking and performance.",
+
+        quote:
+        "Every stage gives you a chance to become someone new.",
+
+        interests: [
+            "Acting",
+            "Public Speaking",
+            "Storytelling",
+            "Stage Performance",
+            "Script Writing",
+            "Media & Publishing"
+        ],
+
+        activities: [
+            "Drama performances",
+            "Acting practice",
+            "Stage activities",
+            "Script development",
+            "Public speaking",
+            "Performance content"
+        ]
+
+    },
+
+
+    dance: {
+
+        name: "Dance Club",
+
+        icon: "💃",
+
+        description:
+        "A lively community for students who express themselves through movement, rhythm and choreography.",
+
+        quote:
+        "Dance is the conversation between movement and music.",
+
+        interests: [
+            "Classical Dance",
+            "Western Dance",
+            "Hip-Hop",
+            "Freestyle",
+            "Choreography",
+            "Stage Performance"
+        ],
+
+        activities: [
+            "Dance practice",
+            "Choreography",
+            "Group performances",
+            "Dance showcases",
+            "Practice sessions",
+            "Stage performances"
+        ]
+
+    },
+
+
+    heritage: {
+
+        name: "Heritage Club",
+
+        icon: "🏛️",
+
+        description:
+        "A community that celebrates culture, history, traditions and the stories that connect us.",
+
+        quote:
+        "The past gives meaning to the present.",
+
+        interests: [
+            "Culture",
+            "History",
+            "Traditions",
+            "Indian Heritage",
+            "Art & Culture",
+            "Storytelling"
+        ],
+
+        activities: [
+            "Cultural activities",
+            "Heritage discussions",
+            "Traditional celebrations",
+            "Cultural documentation",
+            "Student interactions",
+            "Heritage awareness"
+        ]
+
+    },
+
+
+    iucee: {
+
+        name: "IUCEE Club",
+
+        icon: "🌐",
+
+        description:
+        "A student community focused on engineering education, innovation, collaboration and learning.",
+
+        quote:
+        "Learn together. Build together. Grow together.",
+
+        interests: [
+            "Engineering Education",
+            "Innovation",
+            "Learning",
+            "Leadership",
+            "Collaboration",
+            "Technology"
+        ],
+
+        activities: [
+            "Technical discussions",
+            "Learning sessions",
+            "Innovation activities",
+            "Student collaboration",
+            "Workshops",
+            "Engineering initiatives"
+        ]
+
+    },
+
+
+    code: {
+
+        name: "Code Club",
+
+        icon: "💻",
+
+        description:
+        "A place for students who enjoy coding, problem solving, technology and building software.",
+
+        quote:
+        "Every great project starts with a single line of code.",
+
+        interests: [
+            "Programming",
+            "Web Development",
+            "Problem Solving",
+            "Algorithms",
+            "Software Development",
+            "Technology"
+        ],
+
+        activities: [
+            "Coding sessions",
+            "Programming practice",
+            "Problem solving",
+            "Software projects",
+            "Technical discussions",
+            "Coding challenges"
+        ]
+
+    },
+
+
+    space: {
+
+        name: "Space Club",
+
+        icon: "🚀",
+
+        description:
+        "A community for students curious about astronomy, space science, exploration and technology.",
+
+        quote:
+        "Look up. There is always something more to discover.",
+
+        interests: [
+            "Astronomy",
+            "Space Science",
+            "Rocketry",
+            "Space Technology",
+            "Exploration",
+            "Science"
+        ],
+
+        activities: [
+            "Astronomy discussions",
+            "Space observations",
+            "Science activities",
+            "Space technology",
+            "Learning sessions",
+            "Exploration projects"
+        ]
+
+    },
+
+
+    media: {
+
+        name: "Media Club",
+
+        icon: "📸",
+
+        description:
+        "The creative media space for photography, videography, editing, VJ and publishing campus moments.",
+
+        quote:
+        "Capture the moment. Tell the story.",
+
+        interests: [
+            "Photography",
+            "Videography",
+            "Video Editing",
+            "Photo Editing",
+            "VJ / Public Speaking",
+            "Event Publishing"
+        ],
+
+        activities: [
+            "Campus photography",
+            "Event coverage",
+            "Video creation",
+            "Photo editing",
+            "Video editing",
+            "Event publishing"
+        ]
+
+    },
+
+
+    words: {
+
+        name: "Words Worth Club",
+
+        icon: "✍️",
+
+        description:
+        "A space for students who enjoy words, writing, communication and creative expression.",
+
+        quote:
+        "Sometimes, the right words can create an entire world.",
+
+        interests: [
+            "Writing",
+            "Creative Expression",
+            "Communication",
+            "Storytelling",
+            "Poetry",
+            "Content Writing"
+        ],
+
+        activities: [
+            "Creative writing",
+            "Storytelling",
+            "Poetry",
+            "Writing activities",
+            "Communication activities",
+            "Creative content"
+        ]
+
+    }
+
+};
+
+
+
+/* GET CLUB FROM URL */
+
+const params = new URLSearchParams(window.location.search);
+
+const clubKey = params.get("club");
+
+const club = clubs[clubKey] || clubs.make;
+
+
+
+/* SHOW CLUB DETAILS */
+
+document.getElementById("clubName").textContent = club.name;
+
+document.getElementById("clubIcon").textContent = club.icon;
+
+document.getElementById("clubDescription").textContent =
+    club.description;
+
+document.getElementById("clubQuote").textContent =
+    '"' + club.quote + '"';
+
+
+
+/* INTERESTS */
+
+const interestsBox =
+    document.getElementById("clubInterests");
+
+club.interests.forEach(item => {
+
+    const div = document.createElement("div");
+
+    div.className = "interest-item";
+
+    div.innerHTML = "✓ &nbsp; " + item;
+
+    interestsBox.appendChild(div);
+
+});
+
+
+
+/* ACTIVITIES */
+
+const activitiesBox =
+    document.getElementById("clubActivities");
+
+club.activities.forEach(item => {
+
+    const div = document.createElement("div");
+
+    div.className = "interest-item";
+
+    div.innerHTML = "✦ &nbsp; " + item;
+
+    activitiesBox.appendChild(div);
+
+});
+
+
+
+/* FORM BUTTON */
+
+document.getElementById("joinButton").href =
+    "interest.html?club=" +
+    encodeURIComponent(club.name);
+
+</script>
+
+
+</body>
+
+</html>
